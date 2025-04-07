@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Support Our Mission</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <!-- Using a modern, clean font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #3b82f6;
+      --primary-dark: #2563eb;
+      --primary-light: #eff6ff;
+      --secondary: #f59e0b;
+      --gray-50: #f9fafb;
+      --gray-100: #f3f4f6;
+      --gray-200: #e5e7eb;
+      --gray-300: #d1d5db;
+      --gray-600: #4b5563;
+      --gray-700: #374151;
+      --gray-800: #1f2937;
+      --success: #10b981;
+      --background: #f0f4f8;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      background: var(--background);
+      font-family: 'Inter', sans-serif;
+      color: var(--gray-800);
+      line-height: 1.6;
+    }
+
+    .donation-container {
+      max-width: 1200px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+
+    .donation-widget {
+      background: #fff;
+      border-radius: 1rem;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+      overflow: hidden;
+      animation: fadeIn 0.8s ease-out;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .donation-header {
+      text-align: center;
+      padding: 1.5rem;
+      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+      color: #fff;
+    }
+
+    .donation-header .donation-icon {
+      width: 40px;
+      height: 40px;
+      margin-bottom: 0.5rem;
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.1); }
+      100% { transform: scale(1); }
+    }
+
+    .donation-title {
+      font-size: 2rem;
+      font-weight: 700;
+      margin: 0.25rem 0;
+    }
+
+    .donation-subtitle {
+      font-size: 1rem;
+      max-width: 600px;
+      margin: 0.5rem auto 0;
+      opacity: 0.9;
+    }
+
+    .donation-columns {
+      display: flex;
+      gap: 1.5rem;
+      padding: 2rem 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    .left-column, .right-column {
+      flex: 1;
+      min-width: 300px;
+    }
+
+    .right-column {
+    flex: 1;
+    min-width: 300px;
+    display: flex;
+    flex-direction: column;
+    }
+
+    .method-card {
+      background: #fff;
+      border-radius: 0.75rem;
+      padding: 1.5rem;
+      border: 1px solid var(--gray-200);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      margin-bottom: 1.5rem;
+    }
+
+    .method-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    }
+
+    .paypal-card {
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    }
+
+    .method-header {
+      display: flex;
+      align-items: center;
+      margin-bottom: 1rem;
+    }
+
+    .method-header img.method-icon {
+      width: 28px;
+      height: 28px;
+      margin-right: 0.75rem;
+      object-fit: contain;
+    }
+
+    .method-card h3 {
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin: 0;
+      color: var(--gray-800);
+    }
+
+    .paypal-desc {
+      color: var(--gray-600);
+      margin-bottom: 1rem;
+      font-size: 0.95rem;
+    }
+
+    .paypal-iframe-container {
+  width: 100%;
+  max-width: 500px; /* Adjust this based on your needs */
+  margin: 0 auto;
+}
+
+    .bank-details {
+      background: var(--gray-50);
+      border-radius: 0.5rem;
+      padding: 1rem;
+      margin: 1rem 0;
+      border: 1px solid var(--gray-200);
+    }
+
+    .detail-row {
+      display: flex;
+      align-items: center;
+      margin-bottom: 0.1rem;
+      font-size: 0.95rem;
+    }
+
+    .detail-row:last-child {
+      margin-bottom: 0;
+    }
+
+    .detail-label {
+      font-weight: 600;
+      min-width: 130px;
+      color: var(--gray-700);
+    }
+
+    .detail-value {
+      font-family: 'Courier New', Courier, monospace;
+      flex-grow: 1;
+      color: var(--gray-800);
+      font-weight: 500;
+      font-size: 0.95rem;
+    }
+
+    .copy-btn {
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0.3rem;
+      margin-left: 0.5rem;
+      color: var(--gray-600);
+      position: relative;
+      transition: color 0.2s;
+    }
+
+    .copy-btn:hover {
+      color: var(--primary);
+    }
+
+    .copy-btn svg {
+      width: 18px;
+      height: 18px;
+    }
+
+    .tooltip {
+      position: absolute;
+      top: -28px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--gray-700);
+      color: #fff;
+      padding: 4px 8px;
+      border-radius: 4px;
+      font-size: 0.75rem;
+      white-space: nowrap;
+      opacity: 0;
+      transition: opacity 0.2s;
+      pointer-events: none;
+    }
+
+    .copy-btn:hover .tooltip {
+      opacity: 1;
+    }
+
+    .info-note {
+      display: flex;
+      align-items: flex-start;
+      background: var(--primary-light);
+      border-radius: 0.5rem;
+      padding: 1rem;
+      font-size: 0.9rem;
+      margin-top: 1rem;
+      color: var(--gray-800);
+    }
+
+    .info-note svg {
+      width: 20px;
+      height: 20px;
+      fill: var(--primary);
+      margin-right: 0.75rem;
+      flex-shrink: 0;
+    }
+
+    .info-note a {
+      color: var(--primary);
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .info-note a:hover {
+      text-decoration: underline;
+    }
+
+    .corporate-cta {
+      background: linear-gradient(45deg, var(--primary), #60a5fa);
+      border-radius: 0.75rem;
+      padding: 0.75rem;
+      text-align: center;
+      color: #fff;
+      box-shadow: 0 6px 12px rgba(59, 130, 246, 0.2);
+      margin-top: 1rem;
+    }
+
+    .corporate-cta h3 {
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+
+    .corporate-cta p {
+      margin: 0 0 1rem;
+      font-size: 0.95rem;
+      opacity: 0.9;
+    }
+
+    .cta-button {
+      display: inline-block;
+      background: #fff;
+      color: var(--primary);
+      padding: 0.6rem 1.5rem;
+      border-radius: 0.5rem;
+      text-decoration: none;
+      font-weight: 600;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      font-size: 0.95rem;
+    }
+
+    .cta-button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    }
+
+    .donation-footer {
+      padding: 0 1.5rem 2rem;
+    }
+
+    .impact-section {
+      background: var(--gray-50);
+      border-radius: 0.75rem;
+      padding: 1.5rem;
+      border: 1px dashed var(--gray-300);
+    }
+
+    .impact-section h3 {
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+      text-align: center;
+      color: var(--gray-800);
+    }
+
+    .impact-items {
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .impact-item {
+      display: flex;
+      align-items: center;
+      flex: 1;
+      min-width: 180px;
+      padding: 0.8rem;
+      background: #fff;
+      border-radius: 0.5rem;
+      box-shadow: 0 3px 6px rgba(0, 0, 0, 0.08);
+      transition: transform 0.2s ease;
+    }
+
+    .impact-item:hover {
+      transform: translateY(-2px);
+    }
+
+    .impact-item svg {
+      width: 22px;
+      height: 22px;
+      margin-right: 0.75rem;
+      color: var(--primary);
+    }
+
+    .impact-item p {
+      margin: 0;
+      font-size: 0.95rem;
+      color: var(--gray-700);
+    }
+
+    @media (max-width: 768px) {
+      .donation-columns {
+        flex-direction: column;
+        padding: 1.5rem 1rem;
+      }
+      .impact-items {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+    @media (max-width: 768px) {
+  .paypal-iframe-container {
+    max-width: 100%;
+  }
+  
+  iframe {
+    height: 400px; /* Slightly smaller on mobile */
+  }
+}
+  </style>
+</head>
+<body>
+  <div class="donation-container">
+    <div class="donation-widget">
+      <header class="donation-header">
+        <svg class="donation-icon" viewBox="0 0 24 24" aria-hidden="true">
+          <path fill="currentColor" d="M12,21.35L10.55,20.03C5.4,15.36 2,12.27 2,8.5C2,5.41 4.42,3 7.5,3C9.24,3 10.91,3.81 12,5.08C13.09,3.81 14.76,3 16.5,3C19.58,3 22,5.41 22,8.5C22,12.27 18.6,15.36 13.45,20.03L12,21.35Z"/>
+        </svg>
+        <h2 class="donation-title">Support Our Mission</h2>
+        <p class="donation-subtitle">Your contribution helps create meaningful change and fuels our work</p>
+      </header>
+
+      <div class="donation-columns">
+        <div class="left-column">
+          <!-- Bank Transfer -->
+          <div class="method-card">
+            <div class="method-header">
+              <img src="bank.png" class="method-icon" alt="Bank Transfer">
+              <h3>Bank Transfer</h3>
+            </div>
+            <div class="bank-details">
+              <div class="detail-row">
+                <span class="detail-label">Account Holder:</span>
+                <span class="detail-value">EnHands e.V.</span>
+                <button class="copy-btn" data-clipboard-text="EnHands e.V.">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"/>
+                  </svg>
+                  <span class="tooltip">Copy</span>
+                </button>
+              </div>
+              <div class="detail-row">
+                <span class="detail-label">IBAN:</span>
+                <span class="detail-value iban-value">DE74 8306 5408 0005 4605 90</span>
+                <button class="copy-btn" data-clipboard-text="DE74830654080005460590">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"/>
+                  </svg>
+                  <span class="tooltip">Copy</span>
+                </button>
+              </div>
+              <div class="detail-row">
+                <span class="detail-label">BIC:</span>
+                <span class="detail-value">GENODEF1SLR</span>
+                <button class="copy-btn" data-clipboard-text="GENODEF1SLR">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"/>
+                  </svg>
+                  <span class="tooltip">Copy</span>
+                </button>
+              </div>
+              <div class="detail-row">
+                <span class="detail-label">Bank:</span>
+                <span class="detail-value">Deutsche Skatbank</span>
+                <button class="copy-btn" data-clipboard-text="Deutsche Skatbank">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"/>
+                  </svg>
+                  <span class="tooltip">Copy</span>
+                </button>
+              </div>
+            </div>
+            <div class="info-note">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                <path fill="currentColor" d="M11,9H13V7H11M12,20C7.59,20 4,16.41 4,12C4,7.59 7.59,4 12,4C16.41,4 20,7.59 20,12C20,16.41 16.41,20 12,20M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M11,17H13V11H11V17Z"/>
+              </svg>
+              <p>We can issue donation receipts for tax purposes – please email us at <a href="mailto:info@enhands.de">info@enhands.de</a> with your contact details.</p>
+            </div>
+          </div>
+
+          <!-- Corporate Sponsorship -->
+          <div class="corporate-cta">
+            <h3>Corporate Sponsorship</h3>
+            <p>Is your company interested in supporting our mission?</p>
+            <a href="mailto:info@enhands.de" class="cta-button">Contact Us</a>
+          </div>
+        </div>
+
+        <div class="right-column">
+            <!-- PayPal -->
+            <div class="method-card paypal-card">
+              <div class="method-header">
+                <img src="paypal.png" class="method-icon" alt="PayPal Donation">
+                <h3>PayPal Donation</h3>
+              </div>
+              <div class="paypal-iframe-container">
+                <iframe
+                  src="https://www.paypal.com/giving/campaigns?campaign_id=AD2ECE3P9VTVJ"
+                  title="PayPal donate campaign card"
+                  frameborder="0"
+                  width="100%"
+                  height="470"
+                  scrolling="no">
+                </iframe>
+              </div>
+            </div>
+          </div>
+      </div>
+
+      <div class="donation-footer">
+        <div class="impact-section">
+          <h3>Your Impact</h3>
+          <div class="impact-items">
+            <div class="impact-item">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                <path fill="currentColor" d="M12,5.5A3.5,3.5 0 0,1 15.5,9A3.5,3.5 0 0,1 12,12.5A3.5,3.5 0 0,1 8.5,9A3.5,3.5 0 0,1 12,5.5M5,8C5.56,8 6.08,8.15 6.53,8.42C6.38,9.85 6.8,11.27 7.66,12.38C7.16,13.34 6.16,14 5,14A3,3 0 0,1 2,11A3,3 0 0,1 5,8M19,8A3,3 0 0,1 22,11A3,3 0 0,1 19,14C17.84,14 16.84,13.34 16.34,12.38C17.2,11.27 17.62,9.85 17.47,8.42C17.92,8.15 18.44,8 19,8"/>
+              </svg>
+              <p>Help us reach more people in need</p>
+            </div>
+            <div class="impact-item">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                <path fill="currentColor" d="M12,6L13.94,11.06L19,13L13.94,14.94L12,20L10.06,14.94L5,13L10.06,11.06L12,6M6,8.17A2.5,2.5 0 0,0 3.5,10.67A2.5,2.5 0 0,0 6,13.17C6.88,13.17 7.65,12.71 8.09,12.03C7.42,11.18 7,10.15 7,9C7,8.8 7.03,8.61 7.07,8.42C6.75,8.25 6.39,8.17 6,8.17M18,8.17C17.61,8.17 17.25,8.25 16.93,8.42C16.97,8.61 17,8.8 17,9C17,10.15 16.58,11.18 15.91,12.03C16.35,12.71 17.12,13.17 18,13.17A2.5,2.5 0 0,0 20.5,10.67A2.5,2.5 0 0,0 18,8.17"/>
+              </svg>
+              <p>Support sustainable community programs</p>
+            </div>
+            <div class="impact-item">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                <path fill="currentColor" d="M4.58,12.25L2.81,10.97L4.58,9.69L3.97,7.5L6.25,7.58L7.53,5.81L8.81,7.58L11,6.97L10.92,9.25L12.69,10.53L10.92,11.81L11.53,14L9.25,13.92L7.97,15.69L6.69,13.92L4.5,14.53L4.58,12.25M12,6L13.94,11.06L19,13L13.94,14.94L12,20L10.06,14.94L5,13L10.06,11.06L12,6Z"/>
+              </svg>
+              <p>Create lasting positive change</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Clipboard JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.8/clipboard.min.js"></script>
+  <script>
+    new ClipboardJS('.copy-btn');
+
+    document.querySelectorAll('.copy-btn').forEach(btn => {
+      btn.addEventListener('click', function() {
+        const tooltip = this.querySelector('.tooltip');
+        tooltip.textContent = 'Copied!';
+        setTimeout(() => {
+          tooltip.textContent = 'Copy';
+        }, 2000);
+      });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,7 @@
+This Tuesday, you could meet us at the student club fair on the Stammgelände campus.
+Our speciality: the bottle opener challenge - buy a bottle of beer or Spezi, then try to open it with only one hand!
+With a variety of bottle openers to choose from, ranging from quite simple to use with one hand to absurdly hard to use even with two hands, we had something to offer for both casual drink openers and sophisticated professional one-handed bottle uncappers. In summary: opening a bottle with one hand is certainly doable, but also requires some practice! The serious background of our challenge was of course to show how difficult an everyday task can be when you only can use one hand.
+
+We also were happy to get in contact with the other student clubs present at the fair. Directly next to us were the stands of *MedTech OneWorld students*, who pursue diverse medical projects for developing countries, and *DASH*, who develop an exosceleton for the leg. It was great to get to know mroe student clubs with similar interests to ours.
+
+Most importantly, we got in contact with a lot of students that we could present our work to. We are actively looking for new members to join EnHands. If you are also interested to work in our team, please [click the *Join us!* button](/) and contact us!
